@@ -18,14 +18,30 @@ $(document).ready(function() {
   $("button#hello").click(function() {
     $("ul#user").prepend("<li>Hello!</li>");
     $("ul#webpage").prepend("<li>Why hello there!</li>");
-    $('li').css('background-color', 'green')
+    $('li').css('background-color', 'lightgreen')
   });
   $("button#goodbye").click(function() {
     $("ul#user").prepend("<li>Goodbye!</li>");
     $("ul#webpage").prepend("<li>Goodbye, dear user!</li>");
+    $('li').click(function() {
+      alert('Goodbye');
+    });
   });
   $("button#stop").click(function() {
     $("ul#user").prepend("<li>Stop copying me!</li>");
     $("ul#webpage").prepend("<li>Pardon me. I meant no offense!</li>");
+    $('li').click(function() {
+      alert('STOP');
+    });
+    $("ul#user").children("li").first().click(function() {
+      $(this).remove();
+    });
+    $("ul#webpage").children("li").first().click(function() {
+      $(this).remove();
+    });
+  });
+  $("button#hello").click(function(event) {
+    var whatToSay = "HELLO!";
+    alert(whatToSay);
   });
 });
